@@ -1,0 +1,76 @@
+[root@burt html]# php --ini
+Configuration File (php.ini) Path: /etc
+Loaded Configuration File:         /etc/php.ini
+Scan for additional .ini files in: /etc/php.d
+Additional .ini files parsed:      /etc/php.d/20-bz2.ini,
+/etc/php.d/20-calendar.ini,
+/etc/php.d/20-ctype.ini,
+/etc/php.d/20-curl.ini,
+/etc/php.d/20-exif.ini,
+/etc/php.d/20-fileinfo.ini,
+/etc/php.d/20-ftp.ini,
+/etc/php.d/20-gettext.ini,
+/etc/php.d/20-iconv.ini,
+/etc/php.d/20-phar.ini,
+/etc/php.d/20-sockets.ini,
+/etc/php.d/20-tokenizer.ini,
+/etc/php.d/40-json.ini
+
+[root@burt html]# 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+; Paths and Directories ;
+;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; UNIX: "/path1:/path2"
+;include_path = ".:/php/includes"
+;
+; Windows: "\path1;\path2"
+;include_path = ".;c:\php\includes"
+;
+; PHP's default setting for include_path is ".;/path/to/php/pear"
+; http://php.net/include-path
+
+; The root of the PHP pages, used only if nonempty.
+; if PHP was not compiled with FORCE_REDIRECT, you SHOULD set doc_root
+; if you are running php as a CGI under any web server (other than IIS)
+; see documentation for security issues.  The alternate is to use the
+; cgi.force_redirect configuration below
+; http://php.net/doc-root
+doc_root =
+
+; The directory under which PHP opens the script using /~username used only
+; if nonempty.
+; http://php.net/user-dir
+user_dir =
+
+; Directory in which the loadable extensions (modules) reside.
+; http://php.net/extension-dir
+; extension_dir = "./"
+; On windows:
+; extension_dir = "ext"
+
+; Directory where the temporary files should be placed.
+; Defaults to the system default (see sys_get_temp_dir)
+; sys_temp_dir = "/tmp"
+
+; Whether or not to enable the dl() function.  The dl() function does NOT work
+; properly in multithreaded servers, such as IIS or Zeus, and is automatically
+; disabled on them.
+; http://php.net/enable-dl
+enable_dl = Off
+
+
+; cgi.force_redirect is necessary to provide security running PHP as a CGI under
+; most web servers.  Left undefined, PHP turns this on by default.  You can
+; turn it off here AT YOUR OWN RISK
+; **You CAN safely turn this off for IIS, in fact, you MUST.**
+; http://php.net/cgi.force-redirect
+
+
+
+
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+mysql:x:27:27:MySQL Server:/var/lib/mysql:/sbin/nologin
+richb:x:1001:1001::/home/idco.intdata.com/rbotham/:/bin/bash

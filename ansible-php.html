@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IDC Config Automation using Ansible</title>
+</head>
+
+<body>
+
+<form action="v2.0process_configs.php" method="POST">
+
+<h2><font size="5" color="darkgrey" face="consolas">
+IDC Config Automation 
+</font></h2>
+<HR WIDTH="40%" ALIGN="LEFT" NOSHADE>
+
+
+<h2><font size="2.5" color="black" face="tahoma">
+Common Configuration Values
+</font></h2> 
+
+<label for="LSP Description"><font size="2.5" color="black" face="tahoma">
+<p>LSP Description</p>
+<font></label>
+<p><input type="text" name="lsp_description" id="lsp_description" value=''/>
+<p>
+
+<font size="2.5" color="black" face="tahoma">
+<select name="CSPF Selection" id="cspf"> 
+  <option value="1">cspf</option>
+  <option value="2">no-cspf</option>
+ </select>
+</font>
+<p>
+
+<p> Select HOP Count</p>
+<font size="2.5" color="black" face="tahoma">
+<input type="number" name="hop_count" min="1" max="10" value="3">
+</font>
+
+<label for="vc_id"><font size="2.5" color="black" face="tahoma">
+<p>Virtual Circuit ID</p>
+</font></label>
+
+<p><input type="text" name="vc_id" id="vc_id" value=''/>
+<p> Select Vlan ID </p>
+<font size="2.5" color="black" face="tahoma">
+<input type="number" name="vlan_id" min="2" max="4096" value="1">
+
+
+<! CCC interface Section >
+
+<p> Enter Ingress CCC Interface</p>
+<font size="2.5" color="black" face="tahoma">
+<input type="text" name="ingress_mpls_vlan_ccc_interface" id="ingress_mpls_vlan_ccc_interface" value=''>
+</font>
+
+<p> Enter Egress CCC Interface</p>
+<font size="2.5" color="black" face="tahoma">
+<input type="text" name="egress_mpls_vlan_ccc_interface" id="egress_mpls_vlan_ccc_interface" value=''>
+
+
+
+<HR WIDTH="100%" ALIGN="LEFT" NOSHADE>
+
+<! Ingress Section >
+
+<label for="ingress_lsp_hostname"><font size="2.5" color="black" face="tahoma">
+Ingress LSP Hostname
+<font></label>
+<input type="text" name="ingress_lsp_hostname" id="ingress_lsp_hostname" value=''/>
+
+
+<label for="ingress_lsp_name"><font size="2.5" color="black" face="tahoma">
+Ingress LSP name
+<font></label>
+<input type="text" name="ingress_lsp_name" id="ingress_lsp_name" value=''/>
+
+<label for="ingress_mpls_psn_endpoint"><font size="2.5" color="black" face="tahoma">
+Ingress LSP PSN Endpoint
+<font></label>
+<input type="text" name="ingress_mpls_psn_endpoint" id="ingress_mpls_psn_endpoint" value=''/>
+
+<label for="ingress_mpls_lsp_l2cct_neighbor"><font size="2.5" color="black" face="tahoma">
+Ingress MPLS L2 CCT Neighbour
+<font></label>
+<input type="text" name="ingress_mpls_lsp_l2cct_neighbor" id="ingress_mpls_lsp_l2cct_neighbor" value=''/>
+
+<! Egress Section >
+
+<label for="egress_lsp_hostname"><font size="2.5" color="black" face="tahoma">
+<p>Egress LSP Hostname&nbsp&nbsp
+<font></label>
+<input type="text"” name="egress_lsp_hostname" id="egress_lsp_hostname" value=''/>
+
+<label for="egress_lsp_name"><font size="2.5" color="black" face="tahoma">
+Egress LSP name&nbsp
+<font></label>
+<input type="text"” name="egress_lsp_name" id="egress_lsp_name" value=''/>
+
+
+<label for="egress_mpls_psn_endpoint"><font size="2.5" color="black" face="tahoma">
+Egress LSP PSN Endpoint&nbsp
+<font></label>
+<input type="text" name="egress_mpls_psn_endpoint" id="egress_mpls_psn_endpoint" value=''/>
+
+<label for="egress_mpls_lsp_l2cct_neighbor"><font size="2.5" color="black" face="tahoma">
+Egress MPLS L2 CCT Neighbour&nbsp
+<font></label>
+<input type="text" name="egress_mpls_lsp_l2cct_neighbor" id="egress_mpls_lsp_l2cct_neighbor" value=''/>
+
+
+
+<! MPLS Hops Section >
+
+<HR WIDTH="100%" ALIGN="LEFT" NOSHADE>
+
+<b>MPLS Ingress</b> <p>
+<label for="ingress_mpls_hop1"><font size="2.5" color="black" face="tahoma">
+Hop1 
+<font></label>
+<input type="text" size="11" name="ingress_mpls_hop1" id="ingress_mpls_hop1" value=''/>
+
+<label for="ingress_mpls_hop2"><font size="2.5" color="black" face="tahoma">
+Hop2 
+<font></label>
+<input type="text" size="11" name="ingress_mpls_hop2" id="ingress_mpls_hop2" value=''/>
+
+<label for="ingress_mpls_hop3"><font size="2.5" color="black" face="tahoma">
+Hop3 
+<font></label>
+<input type="text" size="11" name="ingress_mpls_hop3" id="ingress_mpls_hop3" value=''/>
+
+<label for="ingress_mpls_hop4"><font size="2.5" color="black" face="tahoma">
+Hop4 
+<font></label>
+<input type="text" size="11" name="ingress_mpls_hop4" id="ingress_mpls_hop4" value=''/>
+<p>
+<label for="ingress_mpls_hop5"><font size="2.5" color="black" face="tahoma">
+Hop5 
+<font></label>
+<input type="text" size="11" name="ingress_mpls_hop5" id="ingress_mpls_hop5" value=''/>
+
+<label for="ingress_mpls_hop6"><font size="2.5" color="black" face="tahoma">
+Hop6 
+<font></label>
+<input type="text" size="11" name="ingress_mpls_hop6" id="ingress_mpls_hop6" value=''/>
+
+<label for="ingress_mpls_hop7"><font size="2.5" color="black" face="tahoma">
+Hop7 
+<font></label>
+<input type="text" size="11" name="ingress_mpls_hop7" id="ingress_mpls_hop7" value=''/>
+
+<label for="ingress_mpls_hop8"><font size="2.5" color="black" face="tahoma">
+Hop8 
+<font></label>
+<input type="text" size="11" name="ingress_mpls_hop8" id="ingress_mpls_hop8" value=''/>
+
+<p>
+
+<b>MPLS Egress </b><p>
+<label for="egress_mpls_hop1"><font size="2.5" color="black" face="tahoma">
+Hop1 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop1" id="egress_mpls_hop1" value=''/>
+
+<label for="egress_mpls_hop2"><font size="2.5" color="black" face="tahoma">
+Hop2 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop2" id="egress_mpls_hop2" value=''/>
+
+<label for="egress_mpls_hop3"><font size="2.5" color="black" face="tahoma">
+Hop3 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop3" id="egress_mpls_hop3" value=''/>
+
+<label for="egress_mpls_hop4"><font size="2.5" color="black" face="tahoma">
+Hop4 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop4" id="egress_mpls_hop4" value=''/>
+<p>
+<label for="egress_mpls_hop4"><font size="2.5" color="black" face="tahoma">
+Hop5 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop5" id="egress_mpls_hop5" value=''/>
+
+<label for="egress_mpls_hop6"><font size="2.5" color="black" face="tahoma">
+Hop6 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop6" id="egress_mpls_hop6" value=''/>
+
+<label for="egress_mpls_hop7"><font size="2.5" color="black" face="tahoma">
+Hop7 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop7" id="egress_mpls_hop7" value=''/>
+
+<label for="egress_mpls_hop8"><font size="2.5" color="black" face="tahoma">
+Hop8 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop8" id="egress_mpls_hop8" value=''/>
+
+<p>
+
+<! Datacentre Section >
+
+<b>Datacentre Codes </b><p>
+<label for="dccode1"><font size="2.5" color="black" face="tahoma">
+DCCODE1 
+<font></label>
+<input type="text" size="11" name="dccode1" id="dccode1" value=''/>
+
+<label for="dccode2"><font size="2.5" color="black" face="tahoma">
+DCCODE2 
+<font></label>
+<input type="text" size="11" name="dccode2" id="dccode2" value=''/>
+
+
+<label for="dccode3"><font size="2.5" color="black" face="tahoma">
+DCCODE3 
+<font></label>
+<input type="text" size="11" name="dccode3" id="dccode3" value=''/>
+
+
+<label for="dccode4"><font size="2.5" color="black" face="tahoma">
+DCCODE4
+<font></label>
+<input type="text" size="11" name="dccode4" id="dccode4" value=''/>
+
+<?php
+$dccode1 =array("ld41.1", "ld41.2" , "ld42.1", "ld42.2");
+echo "<select name='dc_code_array1'>";
+foreach($dccode1 as $option){
+    echo "<option value='{$option}'>{$option}</option>";   
+}
+echo "</select>";
+?>
+
+<HR WIDTH="100%" ALIGN="LEFT" NOSHADE>
+<label for="submitButton">Build Config</label>
+<input type="submit" name="build_config" id="build_config" value="Build Config"/>
+
+</form>
+</body>
+</html>

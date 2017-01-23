@@ -1,0 +1,24 @@
+/*
+Style Sheet ver 1.0for ansible config automation web page
+*/
+
+
+body {
+	background-color: silver;
+	font-family: sans-serif;
+
+}
+
+
+
+h1 {
+	color: black;
+	margin-left: 40px;
+}
+h2 {
+	color: black;
+	font-weight: 5;
+	font-style: consolas;
+
+		
+}

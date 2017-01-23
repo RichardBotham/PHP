@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IDC Config Automation using Ansible</title>
+</head>
+
+<body>
+
+<form action="v2.1process_configs.php" method="POST">
+
+<h2><font size="5" color="darkgrey" face="consolas">
+IDC Config Automation 
+</font></h2>
+<HR WIDTH="40%" ALIGN="LEFT" NOSHADE>
+
+
+<h2><font size="1.5" color="black" face="tahoma">
+Common Configuration Values
+</font></h2> 
+
+<h3>
+<label for="LSP Description"><font size="1.5" color="black" face="tahoma">
+<p>LSP Description</p>
+<font></label>
+<p><input type="text" name="mpls_lsp_vlan_ccc_desc" id="mpls_lsp_vlan_ccc_desc" value=''/>
+</h3>
+
+<h3>
+<label for="Policer to Use"><font size="1.5" color="black" face="tahoma">
+<p>Policer Name</p>
+<font></label>
+<p><input type="text" name="mpls_lsp_policer_name" id="mpls_lsp_policer_name" value=''/>
+</h3>
+
+<h3>
+<label for="mpls_hop_limit"><font size="1.5" color="black" face="tahoma">
+<p>Select HOP Count</p>
+<font size="1.5" color="black" face="tahoma">
+<input type="number" name="mpls_hop_limit" min="1" max="10" value="3">
+</h3>
+
+<h3>
+<label for="mpls_vc_id"><font size="1.5" color="black" face="tahoma">
+Virtual Circuit ID
+<p><input type="text" name="mpls_vc_id" id="mpls_vc_id" value=''/>
+</h3>
+
+<h3>
+<label for="mpls_vlan_id"><font size="1.5" color="black" face="tahoma">
+Select Vlan ID <p>
+<font size="1.5" color="black" face="tahoma">
+<input type="number" name="mpls_vlan_id" min="2" max="4096" value="1">
+</h3>
+
+<! CCC interface Section >
+
+<h3>
+<label for="ingress_mpls_vlan_ccc_interface"><font size="1.5" color="black" face="tahoma">
+<p>Enter Ingress CCC Interface </p>
+<input type="text" name="ingress_mpls_vlan_ccc_interface" id="ingress_mpls_vlan_ccc_interface" value=''>
+</h3>
+
+<h3>
+<label for="egress_mpls_vlan_ccc_interface"><font size="1.5" color="black" face="tahoma">
+<p>Enter Egress CCC Interface</p>
+<input type="text" name="egress_mpls_vlan_ccc_interface" id="egress_mpls_vlan_ccc_interface" value=''>
+</h3>
+
+
+<HR WIDTH="100%" ALIGN="LEFT" NOSHADE>
+
+<! Ingress Section >
+<h3>
+<label for="ingress_mpls_endpoint_hostname"><font size="1.5" color="black" face="tahoma">
+Ingress LSP Hostname
+<input type="text" name="ingress_mpls_endpoint_hostname" id="ingress_mpls_endpoint_hostname" value=''/>
+
+<label for="ingress_mpls_lsp_name"><font size="1.5" color="black" face="tahoma">
+Ingress LSP name
+<input type="text" name="ingress_mpls_lsp_name" id="ingress_mpls_lsp_name" value=''/>
+
+<label for="ingress_mpls_psn_endpoint"><font size="1.5" color="black" face="tahoma">
+Ingress LSP PSN Endpoint
+<input type="text" name="ingress_mpls_psn_endpoint" id="ingress_mpls_psn_endpoint" value=''/>
+
+<label for="ingress_mpls_lsp_l2cct_neighbor"><font size="1.5" color="black" face="tahoma">
+Ingress MPLS L2 CCT Neighbour
+<input type="text" name="ingress_mpls_lsp_l2cct_neighbor" id="ingress_mpls_lsp_l2cct_neighbor" value=''/>
+</h3>
+
+<! Egress Section >
+
+<h3>
+<label for="egress_mpls_endpoint_hostname"><font size="1.5" color="black" face="tahoma">
+Egress LSP Hostname&nbsp&nbsp
+<input type="text"” name="egress_mpls_endpoint_hostname" id="egress_mpls_endpoint_hostname" value=''/>
+
+<label for="egress_mpls_lsp_name"><font size="1.5" color="black" face="tahoma">
+Egress LSP name&nbsp&nbsp
+<input type="text" name="egress_mpls_lsp_name" id="egress_mpls_lsp_name" value=''/>
+
+<label for="egress_mpls_psn_endpoint"><font size="1.5" color="black" face="tahoma">
+Egress LSP PSN Endpoint&nbsp
+<input type="text" name="egress_mpls_psn_endpoint" id="egress_mpls_psn_endpoint" value=''/>
+
+<label for="egress_mpls_lsp_l2cct_neighbor"><font size="1.5" color="black" face="tahoma">
+Egress MPLS L2 CCT Neighbour&nbsp&nbsp
+<input type="text" name="egress_mpls_lsp_l2cct_neighbor" id="egress_mpls_lsp_l2cct_neighbor" value=''/>
+</h3>
+
+
+<! MPLS Hops Section >
+
+<HR WIDTH="100%" ALIGN="LEFT" NOSHADE>
+
+<b>MPLS Ingress</b> <p>
+<label for="ingress_mpls_hop1"><font size="1.5" color="black" face="tahoma">
+Hop1 
+<input type="text" size="11" name="ingress_mpls_hop1" id="ingress_mpls_hop1" value=''/>
+
+<label for="ingress_mpls_hop2"><font size="1.5" color="black" face="tahoma">
+Hop2 
+<input type="text" size="11" name="ingress_mpls_hop2" id="ingress_mpls_hop2" value=''/>
+
+<label for="ingress_mpls_hop3"><font size="1.5" color="black" face="tahoma">
+Hop3 
+<input type="text" size="11" name="ingress_mpls_hop3" id="ingress_mpls_hop3" value=''/>
+
+<label for="ingress_mpls_hop4"><font size="1.5" color="black" face="tahoma">
+Hop4 
+<input type="text" size="11" name="ingress_mpls_hop4" id="ingress_mpls_hop4" value=''/>
+
+<label for="ingress_mpls_hop5"><font size="1.5" color="black" face="tahoma">
+Hop5 
+<input type="text" size="11" name="ingress_mpls_hop5" id="ingress_mpls_hop5" value=''/>
+
+<label for="ingress_mpls_hop6"><font size="1.5" color="black" face="tahoma">
+Hop6 
+<input type="text" size="11" name="ingress_mpls_hop6" id="ingress_mpls_hop6" value=''/>
+
+<label for="ingress_mpls_hop7"><font size="1.5" color="black" face="tahoma">
+Hop7 
+<input type="text" size="11" name="ingress_mpls_hop7" id="ingress_mpls_hop7" value=''/>
+
+<label for="ingress_mpls_hop8"><font size="1.5" color="black" face="tahoma">
+Hop8 
+<input type="text" size="11" name="ingress_mpls_hop8" id="ingress_mpls_hop8" value=''/>
+
+<p>
+
+<b>MPLS Egress </b><p>
+<label for="egress_mpls_hop1"><font size="1.5" color="black" face="tahoma">
+Hop1 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop1" id="egress_mpls_hop1" value=''/>
+
+<label for="egress_mpls_hop2"><font size="1.5" color="black" face="tahoma">
+Hop2 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop2" id="egress_mpls_hop2" value=''/>
+
+<label for="egress_mpls_hop3"><font size="1.5" color="black" face="tahoma">
+Hop3 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop3" id="egress_mpls_hop3" value=''/>
+
+<label for="egress_mpls_hop4"><font size="1.5" color="black" face="tahoma">
+Hop4 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop4" id="egress_mpls_hop4" value=''/>
+
+<label for="egress_mpls_hop4"><font size="1.5" color="black" face="tahoma">
+Hop5 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop5" id="egress_mpls_hop5" value=''/>
+
+<label for="egress_mpls_hop6"><font size="1.5" color="black" face="tahoma">
+Hop6 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop6" id="egress_mpls_hop6" value=''/>
+
+<label for="egress_mpls_hop7"><font size="1.5" color="black" face="tahoma">
+Hop7 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop7" id="egress_mpls_hop7" value=''/>
+
+<label for="egress_mpls_hop8"><font size="1.5" color="black" face="tahoma">
+Hop8 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop8" id="egress_mpls_hop8" value=''/>
+
+<p>
+
+<! Datacentre Section >
+
+<b>Datacentre Codes </b> <p>
+
+<! Datacentre Dropdowns >
+<?php
+$path = "dccodes.txt";
+$file = fopen($path, 'r');
+$data = fread($file, filesize($path));
+fclose($file);
+
+$lines =  explode(PHP_EOL,$data);
+echo '<select name="dccode1" id="dccode1">';
+foreach($lines as $line) {
+  echo '<option value="'. urlencode($line).'">'.$line.'</option>';
+}
+echo '</select>';
+?>
+
+<?php
+$path = "dccodes.txt";
+$file = fopen($path, 'r');
+$data = fread($file, filesize($path));
+fclose($file);
+
+$lines =  explode(PHP_EOL,$data);
+echo '<select name="dccode2" id="dccode2">>';
+foreach($lines as $line) {
+  echo '<option value="'. urlencode($line).'">'.$line.'</option>';
+}
+echo '</select>';
+?>
+
+<?php
+$path = "dccodes.txt";
+$file = fopen($path, 'r');
+$data = fread($file, filesize($path));
+fclose($file);
+
+$lines =  explode(PHP_EOL,$data);
+echo '<select name="dccode3" id="dccode3">';
+foreach($lines as $line) {
+  echo '<option value="'. urlencode($line).'">'.$line.'</option>';
+}
+echo '</select>';
+?>
+
+<?php
+$path = "dccodes.txt";
+$file = fopen($path, 'r');
+$data = fread($file, filesize($path));
+fclose($file);
+
+$lines =  explode(PHP_EOL,$data);
+echo '<select name="dccode4" id="dccode4">';
+foreach($lines as $line) {
+  echo '<option value="'. urlencode($line).'">'.$line.'</option>';
+}
+echo '</select>';
+?>
+
+<?php
+$path = "dccodes.txt";
+$file = fopen($path, 'r');
+$data = fread($file, filesize($path));
+fclose($file);
+
+$lines =  explode(PHP_EOL,$data);
+echo '<select name="dccode5" id="dccode5">';
+foreach($lines as $line) {
+  echo '<option value="'. urlencode($line).'">'.$line.'</option>';
+}
+echo '</select>';
+?>
+
+<?php
+$path = "dccodes.txt";
+$file = fopen($path, 'r');
+$data = fread($file, filesize($path));
+fclose($file);
+
+$lines =  explode(PHP_EOL,$data);
+echo '<select name="dccode6" id="dccode6">';
+foreach($lines as $line) {
+  echo '<option value="'. urlencode($line).'">'.$line.'</option>';
+}
+echo '</select>';
+?>
+
+<?php
+$path = "dccodes.txt";
+$file = fopen($path, 'r');
+$data = fread($file, filesize($path));
+fclose($file);
+
+$lines =  explode(PHP_EOL,$data);
+echo '<select name="dccode7" id="dccode7">';
+foreach($lines as $line) {
+  echo '<option value="'. urlencode($line).'">'.$line.'</option>';
+}
+echo '</select>';
+?>
+
+<?php
+$path = "dccodes.txt";
+$file = fopen($path, 'r');
+$data = fread($file, filesize($path));
+fclose($file);
+
+$lines =  explode(PHP_EOL,$data);
+echo '<select name="dccode8" id="dccode8">';
+foreach($lines as $line) {
+  echo '<option value="'. urlencode($line).'">'.$line.'</option>';
+}
+echo '</select>';
+?>
+<HR WIDTH="100%" ALIGN="LEFT" NOSHADE>
+
+<label for="submitButton" <font size="2.5" color="black" face="tahoma"><b>Build Config</b></label><p>
+<input type="submit" name="build_config" id="build_config" value="Build Configuration..."/>
+
+</form>
+</body>
+</html>

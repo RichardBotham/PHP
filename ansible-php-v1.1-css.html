@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="style-v1.css">
+
+	<title>IDC Config Automation using Ansible</title>
+
+</head>
+
+<body>
+
+
+<form action="v2.2process_configs.php" method="POST">
+
+
+
+<h2><font size="5" color="white" face="consolas">
+IDC Config Automation 
+</font></h2>
+<HR WIDTH="40%" ALIGN="LEFT" NOSHADE>
+
+
+<h2><font size="1.5" color="black" face="tahoma">
+Common Configuration Values
+</font></h2> 
+
+
+<label for="LSP Description"><font size="1.5" color="black" face="tahoma">
+<a title="Description for the MPLS LSP you are creating">LSP Description&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+<font></label>
+<input type="text" name="mpls_lsp_vlan_ccc_desc" id="mpls_lsp_vlan_ccc_desc" value=''/>
+<p>
+
+<label for="Policer to Use"><font size="1.5" color="black" face="tahoma">
+<a title="MPLS policer to use for this MPLS LSP">Policer Name&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+<font></label>
+<input type="text" name="mpls_lsp_policer_name" id="mpls_lsp_policer_name" value=''/>
+<p>
+
+<label for="mpls_hop_limit"><font size="1.5" color="black" face="tahoma">
+<a title="Maximum Hop limit to use for this MPLS LSP">Select HOP Count&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+<font size="1.5" color="black" face="tahoma">
+<input type="number" name="mpls_hop_limit" min="1" max="10" value="3">
+<p>
+
+<label for="mpls_vc_id"><font size="1.5" color="black" face="tahoma">
+<a title="Virtual Circuit ID to use for this MPLS LSP">Virtual Circuit ID&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+<input type="text" name="mpls_vc_id" id="mpls_vc_id" value=''/>
+<p>
+
+
+<label for="mpls_vlan_id"><font size="1.5" color="black" face="tahoma">
+<a title="VLAN ID to use for this MPLS LSP">Select Vlan ID&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+<font size="1.5" color="black" face="tahoma">
+<input type="number" name="mpls_vlan_id" min="2" max="4096" value="2">
+<p>
+
+<! CCC interface Section >
+
+<label for="ingress_mpls_vlan_ccc_interface"><font size="1.5" color="black" face="tahoma">
+<a title="This is the interface connected to the vlan -i.e xe-1/3/4">Ingress CCC Interface&nbsp</a>
+<input type="text" name="ingress_mpls_vlan_ccc_interface" id="ingress_mpls_vlan_ccc_interface" value=''>
+<p>
+
+<label for="egress_mpls_vlan_ccc_interface"><font size="1.5" color="black" face="tahoma">
+<a title="This is the interface connected to the vlan -i.e xe-1/3/4">Egress CCC Interface&nbsp&nbsp</a>
+<input type="text" name="egress_mpls_vlan_ccc_interface" id="egress_mpls_vlan_ccc_interface" value=''>
+
+
+
+<HR WIDTH="100%" ALIGN="LEFT" NOSHADE>
+
+<! Ingress Section >
+
+<label for="ingress_mpls_endpoint_hostname"><font size="1.5" color="black" face="tahoma">
+Ingress Device Hostname&nbsp
+<input type="text" name="ingress_mpls_endpoint_hostname" id="ingress_mpls_endpoint_hostname" value=''/>
+
+Ingress LSP Site Name
+<select name="ingress_mpls_lsp_name">
+<option value="lonld4.1">lonld4.1</option>
+<option value="lonld4.2">lonld4.2</option>
+<option value="loninx1.1">loninx1.1</option>
+<option value="loninx1.2">loninx1.2</option>
+<option value="lonfrh1.1">lonfrh1.1</option>
+<option value="lonfrh1.2">lonfrh1.2</option>
+<option value="fraeq2.1">fraeq2.1</option>
+<option value="fraeq2.2">fraeq2.2</option>
+<option value="parix2.1">parix2.1</option>
+<option value="parix2.2">parix2.2</option>
+<option value="milbt2.1">milbt2.1</option>
+<option value="milbt2.2">milbt2.2</option>
+<option value="zurzh4.1">zurzh4.1</option>
+<option value="zurzh4.2">zurzh4.2</option>
+<option value="vieinx1.1">vieinx1.1</option>
+<option value="vieinx1.2">vieinx1.2</option>
+<option value="stkvzn1.1">stkvzn1.1</option>
+<option value="stkvzn1.2">stkvzn1.2</option>
+<option value="stkinx1.1">stkinx1.1</option>
+<option value="stkinx1.2">stkinx1.2</option>
+<option value="bosbxb1.1">bosbxb1.1</option>
+<option value="bosbxb1.2">bosbxb1.2</option>
+<option value="jfk111.1">jfk111.1</option>
+<option value="nyctlx1.1">nyctlx1.1</option>
+<option value="ewreq2.1">ewreq2.1</option>
+<option value="ewreq4.1">ewreq4.1</option>
+<option value="ewrvz1.1">ewrvz1.1</option>
+<option value="ordeq4.1">ordeq4.1</option>
+<option value="ordeq1.1">ordeq1.1</option>
+<option value="sfohay.3">sfohay.3</option>
+<option value="sfohay.1">sfohay.1</option>
+<option value="sfohay.2">sfohay.2</option>
+<option value="sfohay.4">sfohay.4</option>
+<option value="sjceq5.2">sjceq5.2</option>
+<option value="dfwda1.1">dfwda1.1</option>
+<option value="bufbu1.1">bufbu1.1</option>
+<option value="sydalc.1">sydalc.1</option>
+<option value="sydalc.2">sydalc.2</option>
+<option value="sydsy2.1">sydsy2.1</option>
+<option value="sydsy2.2">sydsy2.2</option>
+<option value="sydpac.1">sydpac.1</option>
+<option value="sydpac.2">sydpac.2</option>
+<option value="hkgcs2.1">hkgcs2.1</option>
+<option value="hkgcs2.2">hkgcs2.2</option>
+<option value="hkghk1.1">hkghk1.1</option>
+<option value="hkghk1.2">hkghk1.2</option>
+<option value="hkghk1.3">hkghk1.3</option>
+<option value="hkghk1.4">hkghk1.4</option>
+<option value="singst.1">singst.1</option>
+<option value="singst.2">singst.2</option>
+<option value="sinsgx.1">sinsgx.1</option>
+<option value="sinsgx.2">sinsgx.2</option>
+<option value="sinsg2.1">sinsg2.1</option>
+<option value="sinsg2.2">sinsg2.2</option>
+<option value="bomnmg.1">bomnmg.1</option>
+<option value="bomnmg.2">bomnmg.2</option>
+<option value="bombkc.1">bombkc.1</option>
+<option value="bombkc.2">bombkc.2</option>
+<option value="tyokvh.1">tyokvh.1</option>
+<option value="tyokvh.2">tyokvh.2</option>
+<option value="tyonpp.1">tyonpp.1</option>
+<option value="tyonpp.2">tyonpp.2</option>
+<option value="tyoatt.1">tyoatt.1</option>
+<option value="tyoatt.2">tyoatt.2</option>
+<option value="tyoty2.1">tyoty2.1</option>
+<option value="tyoty2.2">tyoty2.2</option>
+</select> 
+
+
+
+
+<label for="ingress_mpls_psn_endpoint"><font size="1.5" color="black" face="tahoma">
+Ingress LSP PSN Endpoint
+<input type="text" name="ingress_mpls_psn_endpoint" id="ingress_mpls_psn_endpoint" value=''/>
+
+<label for="ingress_mpls_lsp_l2cct_neighbor"><font size="1.5" color="black" face="tahoma">
+Ingress MPLS L2 CCT Neighbour
+<input type="text" name="ingress_mpls_lsp_l2cct_neighbor" id="ingress_mpls_lsp_l2cct_neighbor" value=''/>
+<p>
+
+<! Egress Section >
+
+
+<label for="egress_mpls_endpoint_hostname"><font size="1.5" color="black" face="tahoma">
+Egress Device Hostname&nbsp&nbsp
+<input type="text"” name="egress_mpls_endpoint_hostname" id="egress_mpls_endpoint_hostname" value=''/>
+
+Egress LSP Site Name&nbsp&nbsp
+<select name="egress_mpls_lsp_name">
+<option value="lonld4.1">lonld4.1</option>
+<option value="lonld4.2">lonld4.2</option>
+<option value="loninx1.1">loninx1.1</option>
+<option value="loninx1.2">loninx1.2</option>
+<option value="lonfrh1.1">lonfrh1.1</option>
+<option value="lonfrh1.2">lonfrh1.2</option>
+<option value="fraeq2.1">fraeq2.1</option>
+<option value="fraeq2.2">fraeq2.2</option>
+<option value="parix2.1">parix2.1</option>
+<option value="parix2.2">parix2.2</option>
+<option value="milbt2.1">milbt2.1</option>
+<option value="milbt2.2">milbt2.2</option>
+<option value="zurzh4.1">zurzh4.1</option>
+<option value="zurzh4.2">zurzh4.2</option>
+<option value="vieinx1.1">vieinx1.1</option>
+<option value="vieinx1.2">vieinx1.2</option>
+<option value="stkvzn1.1">stkvzn1.1</option>
+<option value="stkvzn1.2">stkvzn1.2</option>
+<option value="stkinx1.1">stkinx1.1</option>
+<option value="stkinx1.2">stkinx1.2</option>
+<option value="bosbxb1.1">bosbxb1.1</option>
+<option value="bosbxb1.2">bosbxb1.2</option>
+<option value="jfk111.1">jfk111.1</option>
+<option value="nyctlx1.1">nyctlx1.1</option>
+<option value="ewreq2.1">ewreq2.1</option>
+<option value="ewreq4.1">ewreq4.1</option>
+<option value="ewrvz1.1">ewrvz1.1</option>
+<option value="ordeq4.1">ordeq4.1</option>
+<option value="ordeq1.1">ordeq1.1</option>
+<option value="sfohay.3">sfohay.3</option>
+<option value="sfohay.1">sfohay.1</option>
+<option value="sfohay.2">sfohay.2</option>
+<option value="sfohay.4">sfohay.4</option>
+<option value="sjceq5.2">sjceq5.2</option>
+<option value="dfwda1.1">dfwda1.1</option>
+<option value="bufbu1.1">bufbu1.1</option>
+<option value="sydalc.1">sydalc.1</option>
+<option value="sydalc.2">sydalc.2</option>
+<option value="sydsy2.1">sydsy2.1</option>
+<option value="sydsy2.2">sydsy2.2</option>
+<option value="sydpac.1">sydpac.1</option>
+<option value="sydpac.2">sydpac.2</option>
+<option value="hkgcs2.1">hkgcs2.1</option>
+<option value="hkgcs2.2">hkgcs2.2</option>
+<option value="hkghk1.1">hkghk1.1</option>
+<option value="hkghk1.2">hkghk1.2</option>
+<option value="hkghk1.3">hkghk1.3</option>
+<option value="hkghk1.4">hkghk1.4</option>
+<option value="singst.1">singst.1</option>
+<option value="singst.2">singst.2</option>
+<option value="sinsgx.1">sinsgx.1</option>
+<option value="sinsgx.2">sinsgx.2</option>
+<option value="sinsg2.1">sinsg2.1</option>
+<option value="sinsg2.2">sinsg2.2</option>
+<option value="bomnmg.1">bomnmg.1</option>
+<option value="bomnmg.2">bomnmg.2</option>
+<option value="bombkc.1">bombkc.1</option>
+<option value="bombkc.2">bombkc.2</option>
+<option value="tyokvh.1">tyokvh.1</option>
+<option value="tyokvh.2">tyokvh.2</option>
+<option value="tyonpp.1">tyonpp.1</option>
+<option value="tyonpp.2">tyonpp.2</option>
+<option value="tyoatt.1">tyoatt.1</option>
+<option value="tyoatt.2">tyoatt.2</option>
+<option value="tyoty2.1">tyoty2.1</option>
+<option value="tyoty2.2">tyoty2.2</option>
+</select> 
+
+<label for="egress_mpls_psn_endpoint"><font size="1.5" color="black" face="tahoma">
+Egress LSP PSN Endpoint&nbsp
+<input type="text" name="egress_mpls_psn_endpoint" id="egress_mpls_psn_endpoint" value=''/>
+
+<label for="egress_mpls_lsp_l2cct_neighbor"><font size="1.5" color="black" face="tahoma">
+Egress MPLS L2 CCT Neighbour&nbsp
+<input type="text" name="egress_mpls_lsp_l2cct_neighbor" id="egress_mpls_lsp_l2cct_neighbor" value=''/>
+
+
+
+<! MPLS Hops Section >
+
+<HR WIDTH="100%" ALIGN="LEFT" NOSHADE>
+
+<b>MPLS Ingress</b> <p>
+<label for="ingress_mpls_hop1"><font size="1.5" color="black" face="tahoma">
+Hop1 
+<input type="text" size="11" name="ingress_mpls_hop1" id="ingress_mpls_hop1" value=''/>
+
+<label for="ingress_mpls_hop2"><font size="1.5" color="black" face="tahoma">
+Hop2 
+<input type="text" size="11" name="ingress_mpls_hop2" id="ingress_mpls_hop2" value=''/>
+
+<label for="ingress_mpls_hop3"><font size="1.5" color="black" face="tahoma">
+Hop3 
+<input type="text" size="11" name="ingress_mpls_hop3" id="ingress_mpls_hop3" value=''/>
+
+<label for="ingress_mpls_hop4"><font size="1.5" color="black" face="tahoma">
+Hop4 
+<input type="text" size="11" name="ingress_mpls_hop4" id="ingress_mpls_hop4" value=''/>
+
+<label for="ingress_mpls_hop5"><font size="1.5" color="black" face="tahoma">
+Hop5 
+<input type="text" size="11" name="ingress_mpls_hop5" id="ingress_mpls_hop5" value=''/>
+
+<label for="ingress_mpls_hop6"><font size="1.5" color="black" face="tahoma">
+Hop6 
+<input type="text" size="11" name="ingress_mpls_hop6" id="ingress_mpls_hop6" value=''/>
+
+<label for="ingress_mpls_hop7"><font size="1.5" color="black" face="tahoma">
+Hop7 
+<input type="text" size="11" name="ingress_mpls_hop7" id="ingress_mpls_hop7" value=''/>
+
+<label for="ingress_mpls_hop8"><font size="1.5" color="black" face="tahoma">
+Hop8 
+<input type="text" size="11" name="ingress_mpls_hop8" id="ingress_mpls_hop8" value=''/>
+
+<p>
+
+<b>MPLS Egress </b><p>
+<label for="egress_mpls_hop1"><font size="1.5" color="black" face="tahoma">
+Hop1 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop1" id="egress_mpls_hop1" value=''/>
+
+<label for="egress_mpls_hop2"><font size="1.5" color="black" face="tahoma">
+Hop2 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop2" id="egress_mpls_hop2" value=''/>
+
+<label for="egress_mpls_hop3"><font size="1.5" color="black" face="tahoma">
+Hop3 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop3" id="egress_mpls_hop3" value=''/>
+
+<label for="egress_mpls_hop4"><font size="1.5" color="black" face="tahoma">
+Hop4 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop4" id="egress_mpls_hop4" value=''/>
+
+<label for="egress_mpls_hop4"><font size="1.5" color="black" face="tahoma">
+Hop5 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop5" id="egress_mpls_hop5" value=''/>
+
+<label for="egress_mpls_hop6"><font size="1.5" color="black" face="tahoma">
+Hop6 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop6" id="egress_mpls_hop6" value=''/>
+
+<label for="egress_mpls_hop7"><font size="1.5" color="black" face="tahoma">
+Hop7 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop7" id="egress_mpls_hop7" value=''/>
+
+<label for="egress_mpls_hop8"><font size="1.5" color="black" face="tahoma">
+Hop8 
+<font></label>
+<input type="text" size="11" name="egress_mpls_hop8" id="egress_mpls_hop8" value=''/>
+
+<p>
+
+<! Datacentre Section >
+
+<b>Datacentre Codes </b> <p>
+
+<! Datacentre Dropdowns >
+DC 1 :
+<select name="dccode1">
+<option value=" ">Blank</option>
+<option value=" - ld4.1">lonld4.1</option>
+<option value=" - lonld4.2">lonld4.2</option>
+<option value=" - loninx1.1">loninx1.1</option>
+<option value=" - loninx1.2">loninx1.2</option>
+<option value=" - lonfrh1.1">lonfrh1.1</option>
+<option value=" - lonfrh1.2">lonfrh1.2</option>
+<option value=" - fraeq2.1">fraeq2.1</option>
+<option value=" - fraeq2.2">fraeq2.2</option>
+<option value=" - parix2.1">parix2.1</option>
+<option value=" - parix2.2">parix2.2</option>
+<option value=" - milbt2.1">milbt2.1</option>
+<option value=" - milbt2.2">milbt2.2</option>
+<option value=" - zurzh4.1">zurzh4.1</option>
+<option value=" - zurzh4.2">zurzh4.2</option>
+<option value=" - vieinx1.1">vieinx1.1</option>
+<option value=" - vieinx1.2">vieinx1.2</option>
+<option value=" - stkvzn1.1">stkvzn1.1</option>
+<option value=" - stkvzn1.2">stkvzn1.2</option>
+<option value=" - stkinx1.1">stkinx1.1</option>
+<option value=" - stkinx1.2">stkinx1.2</option>
+<option value=" - bosbxb1.1">bosbxb1.1</option>
+<option value=" - bosbxb1.2">bosbxb1.2</option>
+<option value=" - jfk111.1">jfk111.1</option>
+<option value=" - nyctlx1.1">nyctlx1.1</option>
+<option value=" - ewreq2.1">ewreq2.1</option>
+<option value=" - ewreq4.1">ewreq4.1</option>
+<option value=" - ewrvz1.1">ewrvz1.1</option>
+<option value=" - ordeq4.1">ordeq4.1</option>
+<option value=" - ordeq1.1">ordeq1.1</option>
+<option value=" - sfohay.3">sfohay.3</option>
+<option value=" - sfohay.1">sfohay.1</option>
+<option value=" - sfohay.2">sfohay.2</option>
+<option value=" - sfohay.4">sfohay.4</option>
+<option value=" - sjceq5.2">sjceq5.2</option>
+<option value=" - dfwda1.1">dfwda1.1</option>
+<option value=" - bufbu1.1">bufbu1.1</option>
+<option value=" - sydalc.1">sydalc.1</option>
+<option value=" - sydalc.2">sydalc.2</option>
+<option value=" - sydsy2.1">sydsy2.1</option>
+<option value=" - sydsy2.2">sydsy2.2</option>
+<option value=" - sydpac.1">sydpac.1</option>
+<option value=" - sydpac.2">sydpac.2</option>
+<option value=" - hkgcs2.1">hkgcs2.1</option>
+<option value=" - hkgcs2.2">hkgcs2.2</option>
+<option value=" - hkghk1.1">hkghk1.1</option>
+<option value=" - hkghk1.2">hkghk1.2</option>
+<option value=" - hkghk1.3">hkghk1.3</option>
+<option value=" - hkghk1.4">hkghk1.4</option>
+<option value=" - singst.1">singst.1</option>
+<option value=" - singst.2">singst.2</option>
+<option value=" - sinsgx.1">sinsgx.1</option>
+<option value=" - sinsgx.2">sinsgx.2</option>
+<option value=" - sinsg2.1">sinsg2.1</option>
+<option value=" - sinsg2.2">sinsg2.2</option>
+<option value=" - bomnmg.1">bomnmg.1</option>
+<option value=" - bomnmg.2">bomnmg.2</option>
+<option value=" - bombkc.1">bombkc.1</option>
+<option value=" - bombkc.2">bombkc.2</option>
+<option value=" - tyokvh.1">tyokvh.1</option>
+<option value=" - tyokvh.2">tyokvh.2</option>
+<option value=" - tyonpp.1">tyonpp.1</option>
+<option value=" - tyonpp.2">tyonpp.2</option>
+<option value=" - tyoatt.1">tyoatt.1</option>
+<option value=" - tyoatt.2">tyoatt.2</option>
+<option value=" - tyoty2.1">tyoty2.1</option>
+<option value=" - tyoty2.2">tyoty2.2</option>
+</select> 
+
+
+DC 2 :
+<select name="dccode2">
+<option value=" ">Blank</option>
+<option value=" - lonld4.1">lonld4.1</option>
+<option value=" - lonld4.2">lonld4.2</option>
+<option value=" - loninx1.1">loninx1.1</option>
+<option value=" - loninx1.2">loninx1.2</option>
+<option value=" - lonfrh1.1">lonfrh1.1</option>
+<option value=" - lonfrh1.2">lonfrh1.2</option>
+<option value=" - fraeq2.1">fraeq2.1</option>
+<option value=" - fraeq2.2">fraeq2.2</option>
+<option value=" - parix2.1">parix2.1</option>
+<option value=" - parix2.2">parix2.2</option>
+<option value=" - milbt2.1">milbt2.1</option>
+<option value=" - milbt2.2">milbt2.2</option>
+<option value=" - zurzh4.1">zurzh4.1</option>
+<option value=" - zurzh4.2">zurzh4.2</option>
+<option value=" - vieinx1.1">vieinx1.1</option>
+<option value=" - vieinx1.2">vieinx1.2</option>
+<option value=" - stkvzn1.1">stkvzn1.1</option>
+<option value=" - stkvzn1.2">stkvzn1.2</option>
+<option value=" - stkinx1.1">stkinx1.1</option>
+<option value=" - stkinx1.2">stkinx1.2</option>
+<option value=" - bosbxb1.1">bosbxb1.1</option>
+<option value=" - bosbxb1.2">bosbxb1.2</option>
+<option value=" - jfk111.1">jfk111.1</option>
+<option value=" - nyctlx1.1">nyctlx1.1</option>
+<option value=" - ewreq2.1">ewreq2.1</option>
+<option value=" - ewreq4.1">ewreq4.1</option>
+<option value=" - ewrvz1.1">ewrvz1.1</option>
+<option value=" - ordeq4.1">ordeq4.1</option>
+<option value=" - ordeq1.1">ordeq1.1</option>
+<option value=" - sfohay.3">sfohay.3</option>
+<option value=" - sfohay.1">sfohay.1</option>
+<option value=" - sfohay.2">sfohay.2</option>
+<option value=" - sfohay.4">sfohay.4</option>
+<option value=" - sjceq5.2">sjceq5.2</option>
+<option value=" - dfwda1.1">dfwda1.1</option>
+<option value=" - bufbu1.1">bufbu1.1</option>
+<option value=" - sydalc.1">sydalc.1</option>
+<option value=" - sydalc.2">sydalc.2</option>
+<option value=" - sydsy2.1">sydsy2.1</option>
+<option value=" - sydsy2.2">sydsy2.2</option>
+<option value=" - sydpac.1">sydpac.1</option>
+<option value=" - sydpac.2">sydpac.2</option>
+<option value=" - hkgcs2.1">hkgcs2.1</option>
+<option value=" - hkgcs2.2">hkgcs2.2</option>
+<option value=" - hkghk1.1">hkghk1.1</option>
+<option value=" - hkghk1.2">hkghk1.2</option>
+<option value=" - hkghk1.3">hkghk1.3</option>
+<option value=" - hkghk1.4">hkghk1.4</option>
+<option value=" - singst.1">singst.1</option>
+<option value=" - singst.2">singst.2</option>
+<option value=" - sinsgx.1">sinsgx.1</option>
+<option value=" - sinsgx.2">sinsgx.2</option>
+<option value=" - sinsg2.1">sinsg2.1</option>
+<option value=" - sinsg2.2">sinsg2.2</option>
+<option value=" - bomnmg.1">bomnmg.1</option>
+<option value=" - bomnmg.2">bomnmg.2</option>
+<option value=" - bombkc.1">bombkc.1</option>
+<option value=" - bombkc.2">bombkc.2</option>
+<option value=" - tyokvh.1">tyokvh.1</option>
+<option value=" - tyokvh.2">tyokvh.2</option>
+<option value=" - tyonpp.1">tyonpp.1</option>
+<option value=" - tyonpp.2">tyonpp.2</option>
+<option value=" - tyoatt.1">tyoatt.1</option>
+<option value=" - tyoatt.2">tyoatt.2</option>
+<option value=" - tyoty2.1">tyoty2.1</option>
+<option value=" - tyoty2.2">tyoty2.2</option>
+</select> 
+
+
+DC 3 :
+<select name="dccode3">
+<option value=" ">Blank</option>
+<option value=" - lonld4.1">lonld4.1</option>
+<option value=" - lonld4.2">lonld4.2</option>
+<option value=" - loninx1.1">loninx1.1</option>
+<option value=" - loninx1.2">loninx1.2</option>
+<option value=" - lonfrh1.1">lonfrh1.1</option>
+<option value=" - lonfrh1.2">lonfrh1.2</option>
+<option value=" - fraeq2.1">fraeq2.1</option>
+<option value=" - fraeq2.2">fraeq2.2</option>
+<option value=" - parix2.1">parix2.1</option>
+<option value=" - parix2.2">parix2.2</option>
+<option value=" - milbt2.1">milbt2.1</option>
+<option value=" - milbt2.2">milbt2.2</option>
+<option value=" - zurzh4.1">zurzh4.1</option>
+<option value=" - zurzh4.2">zurzh4.2</option>
+<option value=" - vieinx1.1">vieinx1.1</option>
+<option value=" - vieinx1.2">vieinx1.2</option>
+<option value=" - stkvzn1.1">stkvzn1.1</option>
+<option value=" - stkvzn1.2">stkvzn1.2</option>
+<option value=" - stkinx1.1">stkinx1.1</option>
+<option value=" - stkinx1.2">stkinx1.2</option>
+<option value=" - bosbxb1.1">bosbxb1.1</option>
+<option value=" - bosbxb1.2">bosbxb1.2</option>
+<option value=" - jfk111.1">jfk111.1</option>
+<option value=" - nyctlx1.1">nyctlx1.1</option>
+<option value=" - ewreq2.1">ewreq2.1</option>
+<option value=" - ewreq4.1">ewreq4.1</option>
+<option value=" - ewrvz1.1">ewrvz1.1</option>
+<option value=" - ordeq4.1">ordeq4.1</option>
+<option value=" - ordeq1.1">ordeq1.1</option>
+<option value=" - sfohay.3">sfohay.3</option>
+<option value=" - sfohay.1">sfohay.1</option>
+<option value=" - sfohay.2">sfohay.2</option>
+<option value=" - sfohay.4">sfohay.4</option>
+<option value=" - sjceq5.2">sjceq5.2</option>
+<option value=" - dfwda1.1">dfwda1.1</option>
+<option value=" - bufbu1.1">bufbu1.1</option>
+<option value=" - sydalc.1">sydalc.1</option>
+<option value=" - sydalc.2">sydalc.2</option>
+<option value=" - sydsy2.1">sydsy2.1</option>
+<option value=" - sydsy2.2">sydsy2.2</option>
+<option value=" - sydpac.1">sydpac.1</option>
+<option value=" - sydpac.2">sydpac.2</option>
+<option value=" - hkgcs2.1">hkgcs2.1</option>
+<option value=" - hkgcs2.2">hkgcs2.2</option>
+<option value=" - hkghk1.1">hkghk1.1</option>
+<option value=" - hkghk1.2">hkghk1.2</option>
+<option value=" - hkghk1.3">hkghk1.3</option>
+<option value=" - hkghk1.4">hkghk1.4</option>
+<option value=" - singst.1">singst.1</option>
+<option value=" - singst.2">singst.2</option>
+<option value=" - sinsgx.1">sinsgx.1</option>
+<option value=" - sinsgx.2">sinsgx.2</option>
+<option value=" - sinsg2.1">sinsg2.1</option>
+<option value=" - sinsg2.2">sinsg2.2</option>
+<option value=" - bomnmg.1">bomnmg.1</option>
+<option value=" - bomnmg.2">bomnmg.2</option>
+<option value=" - bombkc.1">bombkc.1</option>
+<option value=" - bombkc.2">bombkc.2</option>
+<option value=" - tyokvh.1">tyokvh.1</option>
+<option value=" - tyokvh.2">tyokvh.2</option>
+<option value=" - tyonpp.1">tyonpp.1</option>
+<option value=" - tyonpp.2">tyonpp.2</option>
+<option value=" - tyoatt.1">tyoatt.1</option>
+<option value=" - tyoatt.2">tyoatt.2</option>
+<option value=" - tyoty2.1">tyoty2.1</option>
+<option value=" - tyoty2.2">tyoty2.2</option>
+</select> 
+
+DC 4 :
+<select name="dccode4">
+<option value=" ">Blank</option>
+<option value=" - lonld4.1">lonld4.1</option>
+<option value=" - lonld4.2">lonld4.2</option>
+<option value=" - loninx1.1">loninx1.1</option>
+<option value=" - loninx1.2">loninx1.2</option>
+<option value=" - lonfrh1.1">lonfrh1.1</option>
+<option value=" - lonfrh1.2">lonfrh1.2</option>
+<option value=" - fraeq2.1">fraeq2.1</option>
+<option value=" - fraeq2.2">fraeq2.2</option>
+<option value=" - parix2.1">parix2.1</option>
+<option value=" - parix2.2">parix2.2</option>
+<option value=" - milbt2.1">milbt2.1</option>
+<option value=" - milbt2.2">milbt2.2</option>
+<option value=" - zurzh4.1">zurzh4.1</option>
+<option value=" - zurzh4.2">zurzh4.2</option>
+<option value=" - vieinx1.1">vieinx1.1</option>
+<option value=" - vieinx1.2">vieinx1.2</option>
+<option value=" - stkvzn1.1">stkvzn1.1</option>
+<option value=" - stkvzn1.2">stkvzn1.2</option>
+<option value=" - stkinx1.1">stkinx1.1</option>
+<option value=" - stkinx1.2">stkinx1.2</option>
+<option value=" - bosbxb1.1">bosbxb1.1</option>
+<option value=" - bosbxb1.2">bosbxb1.2</option>
+<option value=" - jfk111.1">jfk111.1</option>
+<option value=" - nyctlx1.1">nyctlx1.1</option>
+<option value=" - ewreq2.1">ewreq2.1</option>
+<option value=" - ewreq4.1">ewreq4.1</option>
+<option value=" - ewrvz1.1">ewrvz1.1</option>
+<option value=" - ordeq4.1">ordeq4.1</option>
+<option value=" - ordeq1.1">ordeq1.1</option>
+<option value=" - sfohay.3">sfohay.3</option>
+<option value=" - sfohay.1">sfohay.1</option>
+<option value=" - sfohay.2">sfohay.2</option>
+<option value=" - sfohay.4">sfohay.4</option>
+<option value=" - sjceq5.2">sjceq5.2</option>
+<option value=" - dfwda1.1">dfwda1.1</option>
+<option value=" - bufbu1.1">bufbu1.1</option>
+<option value=" - sydalc.1">sydalc.1</option>
+<option value=" - sydalc.2">sydalc.2</option>
+<option value=" - sydsy2.1">sydsy2.1</option>
+<option value=" - sydsy2.2">sydsy2.2</option>
+<option value=" - sydpac.1">sydpac.1</option>
+<option value=" - sydpac.2">sydpac.2</option>
+<option value=" - hkgcs2.1">hkgcs2.1</option>
+<option value=" - hkgcs2.2">hkgcs2.2</option>
+<option value=" - hkghk1.1">hkghk1.1</option>
+<option value=" - hkghk1.2">hkghk1.2</option>
+<option value=" - hkghk1.3">hkghk1.3</option>
+<option value=" - hkghk1.4">hkghk1.4</option>
+<option value=" - singst.1">singst.1</option>
+<option value=" - singst.2">singst.2</option>
+<option value=" - sinsgx.1">sinsgx.1</option>
+<option value=" - sinsgx.2">sinsgx.2</option>
+<option value=" - sinsg2.1">sinsg2.1</option>
+<option value=" - sinsg2.2">sinsg2.2</option>
+<option value=" - bomnmg.1">bomnmg.1</option>
+<option value=" - bomnmg.2">bomnmg.2</option>
+<option value=" - bombkc.1">bombkc.1</option>
+<option value=" - bombkc.2">bombkc.2</option>
+<option value=" - tyokvh.1">tyokvh.1</option>
+<option value=" - tyokvh.2">tyokvh.2</option>
+<option value=" - tyonpp.1">tyonpp.1</option>
+<option value=" - tyonpp.2">tyonpp.2</option>
+<option value=" - tyoatt.1">tyoatt.1</option>
+<option value=" - tyoatt.2">tyoatt.2</option>
+<option value=" - tyoty2.1">tyoty2.1</option>
+<option value=" - tyoty2.2">tyoty2.2</option>
+</select> 
+
+
+DC 5 :
+<select name="dccode5">
+<option value=" ">Blank</option>
+<option value=" - lonld4.1">lonld4.1</option>
+<option value=" - lonld4.2">lonld4.2</option>
+<option value=" - loninx1.1">loninx1.1</option>
+<option value=" - loninx1.2">loninx1.2</option>
+<option value=" - lonfrh1.1">lonfrh1.1</option>
+<option value=" - lonfrh1.2">lonfrh1.2</option>
+<option value=" - fraeq2.1">fraeq2.1</option>
+<option value=" - fraeq2.2">fraeq2.2</option>
+<option value=" - parix2.1">parix2.1</option>
+<option value=" - parix2.2">parix2.2</option>
+<option value=" - milbt2.1">milbt2.1</option>
+<option value=" - milbt2.2">milbt2.2</option>
+<option value=" - zurzh4.1">zurzh4.1</option>
+<option value=" - zurzh4.2">zurzh4.2</option>
+<option value=" - vieinx1.1">vieinx1.1</option>
+<option value=" - vieinx1.2">vieinx1.2</option>
+<option value=" - stkvzn1.1">stkvzn1.1</option>
+<option value=" - stkvzn1.2">stkvzn1.2</option>
+<option value=" - stkinx1.1">stkinx1.1</option>
+<option value=" - stkinx1.2">stkinx1.2</option>
+<option value=" - bosbxb1.1">bosbxb1.1</option>
+<option value=" - bosbxb1.2">bosbxb1.2</option>
+<option value=" - jfk111.1">jfk111.1</option>
+<option value=" - nyctlx1.1">nyctlx1.1</option>
+<option value=" - ewreq2.1">ewreq2.1</option>
+<option value=" - ewreq4.1">ewreq4.1</option>
+<option value=" - ewrvz1.1">ewrvz1.1</option>
+<option value=" - ordeq4.1">ordeq4.1</option>
+<option value=" - ordeq1.1">ordeq1.1</option>
+<option value=" - sfohay.3">sfohay.3</option>
+<option value=" - sfohay.1">sfohay.1</option>
+<option value=" - sfohay.2">sfohay.2</option>
+<option value=" - sfohay.4">sfohay.4</option>
+<option value=" - sjceq5.2">sjceq5.2</option>
+<option value=" - dfwda1.1">dfwda1.1</option>
+<option value=" - bufbu1.1">bufbu1.1</option>
+<option value=" - sydalc.1">sydalc.1</option>
+<option value=" - sydalc.2">sydalc.2</option>
+<option value=" - sydsy2.1">sydsy2.1</option>
+<option value=" - sydsy2.2">sydsy2.2</option>
+<option value=" - sydpac.1">sydpac.1</option>
+<option value=" - sydpac.2">sydpac.2</option>
+<option value=" - hkgcs2.1">hkgcs2.1</option>
+<option value=" - hkgcs2.2">hkgcs2.2</option>
+<option value=" - hkghk1.1">hkghk1.1</option>
+<option value=" - hkghk1.2">hkghk1.2</option>
+<option value=" - hkghk1.3">hkghk1.3</option>
+<option value=" - hkghk1.4">hkghk1.4</option>
+<option value=" - singst.1">singst.1</option>
+<option value=" - singst.2">singst.2</option>
+<option value=" - sinsgx.1">sinsgx.1</option>
+<option value=" - sinsgx.2">sinsgx.2</option>
+<option value=" - sinsg2.1">sinsg2.1</option>
+<option value=" - sinsg2.2">sinsg2.2</option>
+<option value=" - bomnmg.1">bomnmg.1</option>
+<option value=" - bomnmg.2">bomnmg.2</option>
+<option value=" - bombkc.1">bombkc.1</option>
+<option value=" - bombkc.2">bombkc.2</option>
+<option value=" - tyokvh.1">tyokvh.1</option>
+<option value=" - tyokvh.2">tyokvh.2</option>
+<option value=" - tyonpp.1">tyonpp.1</option>
+<option value=" - tyonpp.2">tyonpp.2</option>
+<option value=" - tyoatt.1">tyoatt.1</option>
+<option value=" - tyoatt.2">tyoatt.2</option>
+<option value=" - tyoty2.1">tyoty2.1</option>
+<option value=" - tyoty2.2">tyoty2.2</option>
+</select> 
+
+DC 6 :
+<select name="dccode6">
+<option value=" ">Blank</option>
+<option value=" - lonld4.1">lonld4.1</option>
+<option value=" - lonld4.2">lonld4.2</option>
+<option value=" - loninx1.1">loninx1.1</option>
+<option value=" - loninx1.2">loninx1.2</option>
+<option value=" - lonfrh1.1">lonfrh1.1</option>
+<option value=" - lonfrh1.2">lonfrh1.2</option>
+<option value=" - fraeq2.1">fraeq2.1</option>
+<option value=" - fraeq2.2">fraeq2.2</option>
+<option value=" - parix2.1">parix2.1</option>
+<option value=" - parix2.2">parix2.2</option>
+<option value=" - milbt2.1">milbt2.1</option>
+<option value=" - milbt2.2">milbt2.2</option>
+<option value=" - zurzh4.1">zurzh4.1</option>
+<option value=" - zurzh4.2">zurzh4.2</option>
+<option value=" - vieinx1.1">vieinx1.1</option>
+<option value=" - vieinx1.2">vieinx1.2</option>
+<option value=" - stkvzn1.1">stkvzn1.1</option>
+<option value=" - stkvzn1.2">stkvzn1.2</option>
+<option value=" - stkinx1.1">stkinx1.1</option>
+<option value=" - stkinx1.2">stkinx1.2</option>
+<option value=" - bosbxb1.1">bosbxb1.1</option>
+<option value=" - bosbxb1.2">bosbxb1.2</option>
+<option value=" - jfk111.1">jfk111.1</option>
+<option value=" - nyctlx1.1">nyctlx1.1</option>
+<option value=" - ewreq2.1">ewreq2.1</option>
+<option value=" - ewreq4.1">ewreq4.1</option>
+<option value=" - ewrvz1.1">ewrvz1.1</option>
+<option value=" - ordeq4.1">ordeq4.1</option>
+<option value=" - ordeq1.1">ordeq1.1</option>
+<option value=" - sfohay.3">sfohay.3</option>
+<option value=" - sfohay.1">sfohay.1</option>
+<option value=" - sfohay.2">sfohay.2</option>
+<option value=" - sfohay.4">sfohay.4</option>
+<option value=" - sjceq5.2">sjceq5.2</option>
+<option value=" - dfwda1.1">dfwda1.1</option>
+<option value=" - bufbu1.1">bufbu1.1</option>
+<option value=" - sydalc.1">sydalc.1</option>
+<option value=" - sydalc.2">sydalc.2</option>
+<option value=" - sydsy2.1">sydsy2.1</option>
+<option value=" - sydsy2.2">sydsy2.2</option>
+<option value=" - sydpac.1">sydpac.1</option>
+<option value=" - sydpac.2">sydpac.2</option>
+<option value=" - hkgcs2.1">hkgcs2.1</option>
+<option value=" - hkgcs2.2">hkgcs2.2</option>
+<option value=" - hkghk1.1">hkghk1.1</option>
+<option value=" - hkghk1.2">hkghk1.2</option>
+<option value=" - hkghk1.3">hkghk1.3</option>
+<option value=" - hkghk1.4">hkghk1.4</option>
+<option value=" - singst.1">singst.1</option>
+<option value=" - singst.2">singst.2</option>
+<option value=" - sinsgx.1">sinsgx.1</option>
+<option value=" - sinsgx.2">sinsgx.2</option>
+<option value=" - sinsg2.1">sinsg2.1</option>
+<option value=" - sinsg2.2">sinsg2.2</option>
+<option value=" - bomnmg.1">bomnmg.1</option>
+<option value=" - bomnmg.2">bomnmg.2</option>
+<option value=" - bombkc.1">bombkc.1</option>
+<option value=" - bombkc.2">bombkc.2</option>
+<option value=" - tyokvh.1">tyokvh.1</option>
+<option value=" - tyokvh.2">tyokvh.2</option>
+<option value=" - tyonpp.1">tyonpp.1</option>
+<option value=" - tyonpp.2">tyonpp.2</option>
+<option value=" - tyoatt.1">tyoatt.1</option>
+<option value=" - tyoatt.2">tyoatt.2</option>
+<option value=" - tyoty2.1">tyoty2.1</option>
+<option value=" - tyoty2.2">tyoty2.2</option>
+</select> 
+
+DC 7 :
+<select name="dccode7">
+<option value=" ">Blank</option>
+<option value=" - lonld4.1">lonld4.1</option>
+<option value=" - lonld4.2">lonld4.2</option>
+<option value=" - loninx1.1">loninx1.1</option>
+<option value=" - loninx1.2">loninx1.2</option>
+<option value=" - lonfrh1.1">lonfrh1.1</option>
+<option value=" - lonfrh1.2">lonfrh1.2</option>
+<option value=" - fraeq2.1">fraeq2.1</option>
+<option value=" - fraeq2.2">fraeq2.2</option>
+<option value=" - parix2.1">parix2.1</option>
+<option value=" - parix2.2">parix2.2</option>
+<option value=" - milbt2.1">milbt2.1</option>
+<option value=" - milbt2.2">milbt2.2</option>
+<option value=" - zurzh4.1">zurzh4.1</option>
+<option value=" - zurzh4.2">zurzh4.2</option>
+<option value=" - vieinx1.1">vieinx1.1</option>
+<option value=" - vieinx1.2">vieinx1.2</option>
+<option value=" - stkvzn1.1">stkvzn1.1</option>
+<option value=" - stkvzn1.2">stkvzn1.2</option>
+<option value=" - stkinx1.1">stkinx1.1</option>
+<option value=" - stkinx1.2">stkinx1.2</option>
+<option value=" - bosbxb1.1">bosbxb1.1</option>
+<option value=" - bosbxb1.2">bosbxb1.2</option>
+<option value=" - jfk111.1">jfk111.1</option>
+<option value=" - nyctlx1.1">nyctlx1.1</option>
+<option value=" - ewreq2.1">ewreq2.1</option>
+<option value=" - ewreq4.1">ewreq4.1</option>
+<option value=" - ewrvz1.1">ewrvz1.1</option>
+<option value=" - ordeq4.1">ordeq4.1</option>
+<option value=" - ordeq1.1">ordeq1.1</option>
+<option value=" - sfohay.3">sfohay.3</option>
+<option value=" - sfohay.1">sfohay.1</option>
+<option value=" - sfohay.2">sfohay.2</option>
+<option value=" - sfohay.4">sfohay.4</option>
+<option value=" - sjceq5.2">sjceq5.2</option>
+<option value=" - dfwda1.1">dfwda1.1</option>
+<option value=" - bufbu1.1">bufbu1.1</option>
+<option value=" - sydalc.1">sydalc.1</option>
+<option value=" - sydalc.2">sydalc.2</option>
+<option value=" - sydsy2.1">sydsy2.1</option>
+<option value=" - sydsy2.2">sydsy2.2</option>
+<option value=" - sydpac.1">sydpac.1</option>
+<option value=" - sydpac.2">sydpac.2</option>
+<option value=" - hkgcs2.1">hkgcs2.1</option>
+<option value=" - hkgcs2.2">hkgcs2.2</option>
+<option value=" - hkghk1.1">hkghk1.1</option>
+<option value=" - hkghk1.2">hkghk1.2</option>
+<option value=" - hkghk1.3">hkghk1.3</option>
+<option value=" - hkghk1.4">hkghk1.4</option>
+<option value=" - singst.1">singst.1</option>
+<option value=" - singst.2">singst.2</option>
+<option value=" - sinsgx.1">sinsgx.1</option>
+<option value=" - sinsgx.2">sinsgx.2</option>
+<option value=" - sinsg2.1">sinsg2.1</option>
+<option value=" - sinsg2.2">sinsg2.2</option>
+<option value=" - bomnmg.1">bomnmg.1</option>
+<option value=" - bomnmg.2">bomnmg.2</option>
+<option value=" - bombkc.1">bombkc.1</option>
+<option value=" - bombkc.2">bombkc.2</option>
+<option value=" - tyokvh.1">tyokvh.1</option>
+<option value=" - tyokvh.2">tyokvh.2</option>
+<option value=" - tyonpp.1">tyonpp.1</option>
+<option value=" - tyonpp.2">tyonpp.2</option>
+<option value=" - tyoatt.1">tyoatt.1</option>
+<option value=" - tyoatt.2">tyoatt.2</option>
+<option value=" - tyoty2.1">tyoty2.1</option>
+<option value=" - tyoty2.2">tyoty2.2</option>
+</select> 
+
+DC 8 :
+<select name="dccode8">
+<option value=" ">Blank</option>
+<option value=" - lonld4.1">lonld4.1</option>
+<option value=" - lonld4.2">lonld4.2</option>
+<option value=" - loninx1.1">loninx1.1</option>
+<option value=" - loninx1.2">loninx1.2</option>
+<option value=" - lonfrh1.1">lonfrh1.1</option>
+<option value=" - lonfrh1.2">lonfrh1.2</option>
+<option value=" - fraeq2.1">fraeq2.1</option>
+<option value=" - fraeq2.2">fraeq2.2</option>
+<option value=" - parix2.1">parix2.1</option>
+<option value=" - parix2.2">parix2.2</option>
+<option value=" - milbt2.1">milbt2.1</option>
+<option value=" - milbt2.2">milbt2.2</option>
+<option value=" - zurzh4.1">zurzh4.1</option>
+<option value=" - zurzh4.2">zurzh4.2</option>
+<option value=" - vieinx1.1">vieinx1.1</option>
+<option value=" - vieinx1.2">vieinx1.2</option>
+<option value=" - stkvzn1.1">stkvzn1.1</option>
+<option value=" - stkvzn1.2">stkvzn1.2</option>
+<option value=" - stkinx1.1">stkinx1.1</option>
+<option value=" - stkinx1.2">stkinx1.2</option>
+<option value=" - bosbxb1.1">bosbxb1.1</option>
+<option value=" - bosbxb1.2">bosbxb1.2</option>
+<option value=" - jfk111.1">jfk111.1</option>
+<option value=" - nyctlx1.1">nyctlx1.1</option>
+<option value=" - ewreq2.1">ewreq2.1</option>
+<option value=" - ewreq4.1">ewreq4.1</option>
+<option value=" - ewrvz1.1">ewrvz1.1</option>
+<option value=" - ordeq4.1">ordeq4.1</option>
+<option value=" - ordeq1.1">ordeq1.1</option>
+<option value=" - sfohay.3">sfohay.3</option>
+<option value=" - sfohay.1">sfohay.1</option>
+<option value=" - sfohay.2">sfohay.2</option>
+<option value=" - sfohay.4">sfohay.4</option>
+<option value=" - sjceq5.2">sjceq5.2</option>
+<option value=" - dfwda1.1">dfwda1.1</option>
+<option value=" - bufbu1.1">bufbu1.1</option>
+<option value=" - sydalc.1">sydalc.1</option>
+<option value=" - sydalc.2">sydalc.2</option>
+<option value=" - sydsy2.1">sydsy2.1</option>
+<option value=" - sydsy2.2">sydsy2.2</option>
+<option value=" - sydpac.1">sydpac.1</option>
+<option value=" - sydpac.2">sydpac.2</option>
+<option value=" - hkgcs2.1">hkgcs2.1</option>
+<option value=" - hkgcs2.2">hkgcs2.2</option>
+<option value=" - hkghk1.1">hkghk1.1</option>
+<option value=" - hkghk1.2">hkghk1.2</option>
+<option value=" - hkghk1.3">hkghk1.3</option>
+<option value=" - hkghk1.4">hkghk1.4</option>
+<option value=" - singst.1">singst.1</option>
+<option value=" - singst.2">singst.2</option>
+<option value=" - sinsgx.1">sinsgx.1</option>
+<option value=" - sinsgx.2">sinsgx.2</option>
+<option value=" - sinsg2.1">sinsg2.1</option>
+<option value=" - sinsg2.2">sinsg2.2</option>
+<option value=" - bomnmg.1">bomnmg.1</option>
+<option value=" - bomnmg.2">bomnmg.2</option>
+<option value=" - bombkc.1">bombkc.1</option>
+<option value=" - bombkc.2">bombkc.2</option>
+<option value=" - tyokvh.1">tyokvh.1</option>
+<option value=" - tyokvh.2">tyokvh.2</option>
+<option value=" - tyonpp.1">tyonpp.1</option>
+<option value=" - tyonpp.2">tyonpp.2</option>
+<option value=" - tyoatt.1">tyoatt.1</option>
+<option value=" - tyoatt.2">tyoatt.2</option>
+<option value=" - tyoty2.1">tyoty2.1</option>
+<option value=" - tyoty2.2">tyoty2.2</option>
+</select> 
+
+<HR WIDTH="100%" ALIGN="LEFT" NOSHADE>
+<label for="submitButton" <font size="2.5" color="black" face="tahoma"><b>Build Config</b></label><p>
+<input type="submit" name="build_config" id="build_config" value="Build Configuration..."/></p>
+
+
+<font size="3" color="white" face="tahoma">
+IDC Config Automation <A href="config_automation_help.html">Help File</A>
+
+</form>
+</body>
+</html>
